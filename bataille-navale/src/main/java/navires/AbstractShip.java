@@ -1,11 +1,14 @@
 package navires;
 import ensta.Orientation;
+import ensta.Board;
+import ensta.ShipState;
 
 public abstract class AbstractShip {
     protected char label ;
     protected String nom ;
     protected int taille;
     protected Orientation orientation;
+    int strikeCount = 0;
 
     static int nbShips = 0;
     public AbstractShip(char label,String nom, int taille, Orientation orientation){
@@ -30,6 +33,22 @@ public abstract class AbstractShip {
     public void setNom(String nom){this.nom = nom;}
     public void setTaille(int taille){this.taille=taille;}
     public void setOrientation(Orientation ori){this.orientation=ori;}
+
+    public void addStrike(){
+        if(strikeCount<this.taille){
+            
+            strikeCount++;
+        }
+    }
+    public boolean isSunk(){
+        if(strikeCount==this.taille){
+            return true;
+        }
+        else{
+            return false;
+        }
+        
+    }
 
     @Override
     public String toString(){

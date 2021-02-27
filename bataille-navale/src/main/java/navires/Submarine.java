@@ -4,9 +4,11 @@ import ensta.Orientation;
 public class Submarine extends AbstractShip {
    
 
-    public Submarine(char label,String nom, int taille, Orientation orientation){
-        super(label, nom, taille, orientation);
-       
+    public Submarine(Orientation orientation){
+        super('S', "Submarine", 1, orientation);  
+    }
+    public Submarine(){
+        super('S', "Submarine", 1, Orientation.EAST);
     }
 
     @Override

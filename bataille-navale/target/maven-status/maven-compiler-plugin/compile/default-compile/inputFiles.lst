@@ -1,3 +1,7 @@
+/mnt/c/IN205/bataille-navale/src/main/java/ensta/Hit.java
+/mnt/c/IN205/bataille-navale/src/main/java/ensta/InputHelper.java
+/mnt/c/IN205/bataille-navale/src/main/java/ensta/ColorUtil.java
+/mnt/c/IN205/bataille-navale/src/main/java/ensta/Player.java
 /mnt/c/IN205/bataille-navale/src/main/java/ensta/Board.java
 /mnt/c/IN205/bataille-navale/src/main/java/navires/AbstractShip.java
 /mnt/c/IN205/bataille-navale/src/main/java/navires/Destroyer.java
@@ -6,4 +10,5 @@
 /mnt/c/IN205/bataille-navale/src/main/java/ensta/Orientation.java
 /mnt/c/IN205/bataille-navale/src/main/java/ensta/App.java
 /mnt/c/IN205/bataille-navale/src/main/java/navires/BattleShip.java
+/mnt/c/IN205/bataille-navale/src/main/java/ensta/ShipState.java
 /mnt/c/IN205/bataille-navale/src/main/java/navires/Carrier.java

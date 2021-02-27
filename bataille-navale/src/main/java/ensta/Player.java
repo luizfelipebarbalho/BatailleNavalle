@@ -1,4 +1,5 @@
 package ensta;
+import navires.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -34,35 +35,69 @@ public class Player {
 
         do {
             AbstractShip s = ships[i];
-            String msg = String.format("placer %d : %s(%d)", i + 1, s.getName(), s.getLength());
+            String msg = String.format("placer %d : %s(%d)", i + 1, s.getNom(), s.getTaille());
             System.out.println(msg);
             InputHelper.ShipInput res = InputHelper.readShipInput();
+
             // TODO set ship orientation
-            if(res.orientation == 'n')board.setOrientation(Orientation.NORTH);
-            if(res.orientation == 's')board.setOrientation(Orientation.SOUTH);
-            if(res.orientation == 'e')board.setOrientation(Orientation.EAST);
-            if(res.orientation == 'w')board.setOrientation(Orientation.WEST);
+            if(res.orientation.contains("n"))ships[i].setOrientation(Orientation.NORTH);
+            if(res.orientation.contains("s"))ships[i].setOrientation(Orientation.SOUTH);
+            if(res.orientation.contains("e"))ships[i].setOrientation(Orientation.EAST);
+            if(res.orientation.contains("w"))ships[i].setOrientation(Orientation.WEST);
+
             // TODO put ship at given position
-            if(board.putShip(ships[i],res.x,res.y)){
-                //TODO when ship is positioned
-                ++i;
-                done = i == 5;
-                board.print();
-            }            
+            try{
+                board.putShip(ships[i],res.x,res.y);
+            }
+            catch(ArrayIndexOutOfBoundsException e){
+                 //TODO when ship is positioned    
+                System.out.println(e.getMessage());
+                i--;
+            }
+            ++i;
+            done = i == 5;
+
+            board.DrawShips();
+
+                       
         } while (!done);
     }
 
-    public Hit sendHit(int[] coords) {
-        boolean done;
+    public Hit sendHit(int[] coords) 
+    {
+        boolean done = false;
         Hit hit = null;
 
         do {
             System.out.println("où frapper?");
             InputHelper.CoordInput hitInput = InputHelper.readCoordInput();
-            // TODO call sendHit on this.opponentBoard
 
-            // TODO : Game expects sendHit to return BOTH hit result & hit coords.
-            // return hit is obvious. But how to return coords at the same time ?
+            // TODO call sendHit on this.opponentBoard
+            coords[0]= hitInput.x;
+            coords[1]= hitInput.y;
+
+            if(hitInput.x < 0 || hitInput.y < 0 || hitInput.x >= board.getSize() || hitInput.x >= board.getSize())
+                System.out.println("Shot out of bounds");
+
+            else if(board.getHit(hitInput.x, hitInput.y) == null)
+            {
+                hit = this.opponentBoard.sendHit(hitInput.x,hitInput.y);
+                
+                if(hit == Hit.MISS) this.board.setHit(false,hitInput.x,hitInput.y);
+
+                else  this.board.setHit(true,hitInput.x,hitInput.y);
+
+                System.out.println(hit.toString());
+                done = true; 
+                board.Print();
+
+            }
+
+            else
+                System.out.println("Position already attacked");
+            
+
+           
         } while (!done);
 
         return hit;
