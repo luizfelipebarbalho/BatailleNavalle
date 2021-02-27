@@ -5,10 +5,10 @@ public class Destroyer extends AbstractShip {
    
 
     public Destroyer(Orientation orientation){
-        super('D', "Destroyer", 3, orientation);  
+        super('D', "Destroyer", 2, orientation);  
     }
     public Destroyer(){
-        super('D', "Destroyer", 3, Orientation.EAST);
+        super('D', "Destroyer", 2, Orientation.EAST);
     }
     @Override
     public String toString(){

@@ -2,12 +2,12 @@ package ensta;
 import java.util.NoSuchElementException;
 
 public enum Hit {
-    MISS(-1, "manqué"),
-    STRIKE(-2, "touché"),
-    DESTROYER(2, "Frégate"),
-    SUBMARINE(3, "Sous-marin"),
-    BATTLESHIP(4, "Croiseur"),
-    CARRIER(5, "Porte-avion");
+    MISS(-1, "manqué :'("),
+    STRIKE(-2, "touché!!!!!!!!!!"),
+    DESTROYER(2, "Frégate DESTROYED"),
+    SUBMARINE(3, "Sous-marin DESTROYED"),
+    BATTLESHIP(4, "Croiseur DESTROYED"),
+    CARRIER(5, "Porte-avion DESTROYED");
 
     /* ***
      * Attributs

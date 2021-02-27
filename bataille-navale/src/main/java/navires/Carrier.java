@@ -5,10 +5,10 @@ public class Carrier extends AbstractShip {
    
 
     public Carrier(Orientation orientation){
-        super('C', "Carrier", 4, orientation);  
+        super('C', "Carrier", 5, orientation);  
     }
     public Carrier(){
-        super('C', "Carrier", 4, Orientation.EAST);
+        super('C', "Carrier", 5, Orientation.EAST);
     }
 
     @Override

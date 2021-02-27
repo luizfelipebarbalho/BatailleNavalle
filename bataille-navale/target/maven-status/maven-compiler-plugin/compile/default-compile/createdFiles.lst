@@ -10,8 +10,10 @@ ensta/InputHelper.class
 ensta/App.class
 ensta/InputHelper$CoordInput.class
 ensta/InputHelper$ShipInput.class
+ensta/AIPlayer.class
 navires/Carrier.class
 navires/Destroyer.class
 ensta/ColorUtil.class
 ensta/ShipState.class
 ensta/ColorUtil$Color.class
+ensta/BattleShipsAI.class
